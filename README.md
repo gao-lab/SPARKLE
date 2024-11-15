@@ -55,15 +55,15 @@ conda install -c bioconda r-brucer
 
 SPARKLE provides five real-world cases for users:
 
-[Tutorial 01: Supported Data Input Formats](https://htmlpreview.github.io/?https://github.com/gao-lab/SPARKLE/blob/master/tutorial/00How_to_input_data.html)
+[Tutorial 01: Supported Data Input Formats](https://htmlpreview.github.io/?https://github.com/gao-lab/SPARKLE/blob/main/tutorial/00How_to_input_data.html)
 
-[Tutorial 02: Example Case: COVID19 dataset](https://htmlpreview.github.io/?https://github.com/gao-lab/SPARKLE/blob/master/tutorial/02TutorialCOVID.html)
+[Tutorial 02: Example Case: COVID19 dataset](https://htmlpreview.github.io/?https://github.com/gao-lab/SPARKLE/blob/main/tutorial/02TutorialCOVID.html)
 
-[Tutorial 03: Example Case: MNP dataset](https://htmlpreview.github.io/?https://github.com/gao-lab/SPARKLE/blob/master/tutorial/03TutorialMNP.html)
+[Tutorial 03: Example Case: MNP dataset](https://htmlpreview.github.io/?https://github.com/gao-lab/SPARKLE/blob/main/tutorial/03TutorialMNP.html)
 
-[Tutorial 04: Example Case: Tcell dataset](https://htmlpreview.github.io/?https://github.com/gao-lab/SPARKLE/blob/master/tutorial/04TutorialTcell.html)
+[Tutorial 04: Example Case: Tcell dataset](https://htmlpreview.github.io/?https://github.com/gao-lab/SPARKLE/blob/main/tutorial/04TutorialTcell.html)
 
-[Tutorial 05: Example Case: Fibroblast dataset](https://htmlpreview.github.io/?https://github.com/gao-lab/SPARKLE/blob/master/tutorial/01TutorialFibroblast.html)
+[Tutorial 05: Example Case: Fibroblast dataset](https://htmlpreview.github.io/?https://github.com/gao-lab/SPARKLE/blob/main/tutorial/01TutorialFibroblast.html)
 
 ## **Data Source:Fibrotic Disease Fibroblast Atlas (FDFA)**
 
