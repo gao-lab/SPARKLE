@@ -79,7 +79,4 @@ Xi Chen, Yang Ding, Shiqi Yang, Lin Wei, Ming Chu, Hao Tang, Lei Kong, Yixin Zho
 ## Contact
 
 Email: sparkle@mail.cbi.pku.edu.cn
-<<<<<<< HEAD
-=======
-
->>>>>>> 7fe1b17f9ab232b30351f9ef5628e108799d2ebc
+ 
