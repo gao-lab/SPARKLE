@@ -1,0 +1,46 @@
+Package: SPARKLE
+Type: Package
+Title: Single-cell Phenotype Association Research Kit for Large-scale Evaluation
+Version: 1.0.1
+Authors@R: c(
+  person("Chen", "Xi", ,email = "chenxi199506@stu.pku.edu.cn", role = c("aut", "cre")),
+  person("Ding", "Yang", ,email = "dingy@mail.cbi.pku.edu.cn", role = "ctb"),
+  person("Shiqi", "Yang",, email = "yangshiqi@mail.cbi.pku.edu.cn", role = "ctb"),
+  person("Lin", "Wei", ,email = "weilin@mail.cbi.pku.edu.cn", role = "ctb"),
+  person("Lei", "Kong",, email = "konglei@pku.edu.cn", role = "ctb"),
+  person("Ge", "Gao",, email = "gaog@mail.cbi.pku.edu.cn", role = c("ctb", "cph", "fnd"))) 
+Description: SPARKLE is an R package designed to facilitate Cell Type-Wide Association Studies (CWAS) based on Single Cell Sequencing data. The package focuses on leveraging multi-factor generalized linear mixed models to control confounding factors and interference from other cell types, enabling better handling of dataset heterogeneity and integration. By utilizing these models, SPARKLE aims to discover and analyze interactions between different cell types, thereby improving the reproducibility and efficiency of cell type association studies within single-cell sequencing datasets.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Depends: 
+  R (>= 2.10)
+LazyData: true
+Suggests: 
+    factoextra,
+    ggpubr,
+    ggrepel,
+    grid,
+    gtools,
+    gtsummary,
+    leaps,
+    MuMIn,
+    reshape2,
+    simr,
+    stats,
+    testthat (>= 3.0.0)
+Imports: 
+    bruceR,
+    doParallel,
+    dplyr,
+    foreach,
+    forestploter,
+    ggplot2,
+    igraph,
+    iterators,
+    lme4,
+    pheatmap,
+    plyr,
+    tidyr
+Config/testthat/edition: 3

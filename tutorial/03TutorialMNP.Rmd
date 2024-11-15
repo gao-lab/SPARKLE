@@ -1,0 +1,199 @@
+---
+title: "Case 3: MNP cell"
+author: "XiChen"
+date:  "`r Sys.Date()`"
+output:
+  rmdformats::readthedown:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T,results = "hide",eval = T,warning=FALSE,message=FALSE)
+library(tidyverse)
+sf.rds <- function(variable,vn = "viarablename"){
+  dir.create(vn)
+  namefile <- gsub(" ","",paste0(vn,Sys.time(),".rds"))
+namefile <- gsub(":","",namefile)
+print(variable)
+saveRDS(variable,file = paste0(vn,"/",namefile),compress = F)
+output <- paste0("文件 ",namefile,"存储在",vn,"文件夹")
+  return(output)
+}
+
+
+```
+
+ 
+
+
+>[Datasource: Cross-tissue single-cell landscape of human monocytes and macrophages in health and disease.](https://www.cell.com/immunity/fulltext/S1074-7613(21)00293-4?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS1074761321002934%3Fshowall%3Dtrue)
+
+
+This example data has been integrated in the SPARKLE (`SPARKLE::MNP.metadata`)
+
+
+# Input data
+
+Input formats : Seurat metadata
+
+
+```{r,results = "axis"}
+ 
+library(SPARKLE)
+metadata <-SPARKLE::MNP.metadata 
+
+ 
+knitr::kable(head(metadata), caption = "Seurat metadata")  
+
+sparkle.data <- cwas_build_model_data(inputdata = metadata,Sample = "Patient.No",Phenotype = "Status",Celltype ="Clusters",Group ="Tissue",Subgroup = "Study.No",Control_label = "Healthy",Disease_label = "Cancer",selected_celltype = c("cDC1","mregDC","Macrophage-4"))
+ 
+
+```
+
+# Data exporlation (Optional)
+
+
+## PCA
+
+PCA plot for data exploration
+
+```{r,eval = T}
+cwas_pcadraw(sparkle.data) 
+```
+
+
+## Wilcoxon 
+
+Wilcoxon rank sum test and plot
+
+```{r,eval = T}
+
+cwas_classic_comparision(sparkle.data)  
+
+```
+
+## Hausman_test{.tabset}
+
+### Test for Group
+
+```{r,results = "axis"}
+
+
+df <- cwas_hausman_test_all(sparkle.data,variable = "Group")
+
+
+knitr::kable(df, caption = "Hausman test")  
+
+```
+
+
+### Test for Subgroup
+
+```{r,results = "axis"}
+
+
+df2 <- cwas_hausman_test_all(sparkle.data,variable = "Subgroup")
+
+knitr::kable(df2, caption = "Hausman test") 
+```
+
+
+
+#  Cell-phenotype association analysis
+
+## All model calculation
+
+```{r,include=TRUE,results = "hide"}
+
+
+# Calculate the results for all models
+all.models <- cwas_allmodel_cal(sparkle.data)
+
+# If the above runs slowly, you can use a multi-core parallel strategy. 
+
+# library(doParallel)
+# all.models <- cwas_allmodel_cal(sparkle.data, num_cores = 4)
+
+#The num_cores parameter specifies the number of cores you are using.
+
+```
+
+## Heatmap plot for all model
+
+
+```{r,results = "hide"}
+p <- cwas_allmodel_heatmap(all.models)# Plot all model AIC and Pvalue
+```
+ 
+
+
+## Forest plot for Best model selection
+
+```{r,fig.height=6,fig.width=10,results = "hide"}
+
+best.model <- cwas_autoselected_model(all.models)# Select the best model and plot
+
+
+```
+
+
+
+
+#  Cell-phenotype covariate analysis
+
+
+
+```{r,fig.height=6,fig.width=10,results = "hide"}
+
+
+all.model.cov <- cwas_2celltype_allmodel_cal(sparkle.data)# Select the best model and plot
+cwas_allmodel_heatmap(all.model.cov)# Plot all model AIC and Pvalue
+best.model.cov <- cwas_autoselected_model(all.model.cov)# Select the best model and plot
+
+
+```
+
+
+#  Cell-phenotype mediation analysis
+
+```{r,fig.height=6,fig.width=10,result="hide"}
+
+Your_interested_celltype="mregDC"
+
+all.model.med <- cwas_mediation_analysis(sparkle.data,X.cell = Your_interested_celltype,Best_model =best.model,method = "cell_mediate_cell" )# Select the best model and plot
+
+```
+ 
+
+
+
+#  Cell-phenotype moderation analysis
+
+
+
+```{r,fig.height=6,fig.width=10,result="hide"}
+
+all.model.mod <- cwas_moderation_analysis(sparkle.data,X.cell =Your_interested_celltype,Best_model =best.model,method = "cell_moderation_cell" )# Select the best model and plot
+
+
+
+```
+
+
+
+#  Moderation network plot
+
+```{r,fig.height=18,fig.width=16,result="hide"}
+
+
+
+sparkle.data <- cwas_build_model_data(inputdata = metadata,Sample = "Patient.No",Phenotype = "Status",Celltype ="Clusters",Group ="Tissue",Subgroup = "Study.No",Control_label = "Healthy",Disease_label = "Cancer",selected_celltype = c("cDC1","mregDC"))
+
+
+SPARKLE::Cell_phenotype_network_plot(sparkle.data )
+
+```
