@@ -1,7 +1,7 @@
 Package: SPARKLE
 Type: Package
 Title: Single-cell Phenotype Association Research Kit for Large-scale Evaluation
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: c(
   person("Chen", "Xi", ,email = "chenxi199506@stu.pku.edu.cn", role = c("aut", "cre")),
   person("Ding", "Yang", ,email = "dingy@mail.cbi.pku.edu.cn", role = "ctb"),
