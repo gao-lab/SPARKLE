@@ -12,7 +12,7 @@ SPARKLE is based on generalized linear mixed models (GLMM) for large-scale singl
 
 ## Installation of R package
 
-Running the package requires a working R environment (>\=3.5).
+
 
 
 ### Install from Github using devtools
@@ -23,7 +23,7 @@ if (!requireNamespace("devtools", quietly = TRUE)) {
   install.packages("devtools")
 }
 
-devtools::install_github("gao-lab/SPARKLE", dep=TRUE, force=TRUE)
+devtools::install_github("gao-lab/SPARKLE@master", dep=TRUE, force=TRUE)
 
 ```
 
@@ -38,6 +38,9 @@ install.packages(path_to_file, type = 'source', rep = NULL) # The path_to_file w
 ```
 
 >Warning: 
+
+Running the package requires a working R environment (>\=3.5).
+
 For Linux or MacOS users, if cmake is not installed, there might be errors during the installation of lme4 and bruceR dependencies. Please install the following first:
 
 ```
