@@ -10,11 +10,12 @@ SPARKLE is based on generalized linear mixed models (GLMM) for large-scale singl
 ![pic](./tutorial/figure/pic1.png)
 
 
-## Installation
+## Installation of R package
 
 Running the package requires a working R environment (>\=3.5).
 
 
+### Install from Github using devtools
 
 ```
  
@@ -36,6 +37,16 @@ conda install -c conda-forge r-lme4
 conda install -c bioconda r-brucer
 
 ```
+
+
+### Install from R source codes
+
+```
+
+install.packages(path_to_file, type = 'source', rep = NULL) # The path_to_file would represent the full path and file name
+
+```
+
 
 ## Capabilities
 
