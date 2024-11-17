@@ -27,6 +27,16 @@ devtools::install_github("gao-lab/SPARKLE", dep=TRUE, force=TRUE)
 
 ```
 
+### Install from R source codes
+
+Download source codes [here](https://github.com/gao-lab/SPARKLE/blob/main/SPARKLE_1.0.1.tar.gz) and type (in R)
+
+```
+
+install.packages(path_to_file, type = 'source', rep = NULL) # The path_to_file would represent the full path and file name (SPARKLE_1.0.1.tar.gz)
+
+```
+
 >Warning: 
 For Linux or MacOS users, if cmake is not installed, there might be errors during the installation of lme4 and bruceR dependencies. Please install the following first:
 
@@ -38,14 +48,6 @@ conda install -c bioconda r-brucer
 
 ```
 
-
-### Install from R source codes
-
-```
-
-install.packages(path_to_file, type = 'source', rep = NULL) # The path_to_file would represent the full path and file name
-
-```
 
 
 ## Capabilities
