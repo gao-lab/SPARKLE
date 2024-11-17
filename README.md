@@ -23,7 +23,7 @@ if (!requireNamespace("devtools", quietly = TRUE)) {
   install.packages("devtools")
 }
 
-devtools::install_github("gao-lab/SPARKLE", dep=TRUE, force=TRUE)
+devtools::install_github("gao-lab/SPARKLE@master", dep=TRUE, force=TRUE)
 
 ```
 
