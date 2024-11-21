@@ -133,7 +133,8 @@ OR_plot_compare <- function (data, show_variable = c("Celltype", "Model", "OR(95
                                                                    ifelse(is.null(atri_info$Covariate2), "Not Provided",
                                                                           atri_info$Covariate2)))
   info <- paste(info_parts, collapse = "\n")
-  footnote2 <- paste0(footnote1, info)
+  #footnote2 <- paste0(footnote1, info)
+  footnote2 <- footnote1
   pp <- forestploter::forest(data[, show_variable2], est = data$OR,
                              lower = data$CI_lower, upper = data$CI_upper, sizes = 0.8,
                              ci_column = 4, ref_line = 1, arrow_lab = c("Low risk",
