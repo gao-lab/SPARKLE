@@ -29,7 +29,7 @@ devtools::install_github("gao-lab/SPARKLE@master", dep=TRUE, force=TRUE)
 
 ### Install from R source codes
 
-Download source codes [here](https://github.com/gao-lab/SPARKLE/blob/main/SPARKLE_1.0.1.tar.gz) and type (in R)
+Download source codes [here](https://github.com/gao-lab/SPARKLE/blob/main/SPARKLE_1.2.2.tar.gz) and type (in R)
 
 ```
 
